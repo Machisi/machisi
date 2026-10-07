@@ -35,7 +35,7 @@ LEVELS = {
     "THIRD_QUARTILE": 3,
     "FOURTH_QUARTILE": 4,
 }
-COLORS = ("#231c33", "#4c1d95", "#6d28d9", "#a855f7", "#ddd6fe")
+COLORS = ("#161b22", "#0e4429", "#006d32", "#26a641", "#39d353")
 MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 Day = tuple[date, int, int]
 
