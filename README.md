@@ -1,12 +1,12 @@
 <p align="center">
-  <img src="./assets/banner.svg" alt="Marc Chisbert Simó · Ingeniería informática y finanzas" width="100%" />
+  <img src="./assets/banner-ade.svg" alt="Marc Chisbert Simó · Ingeniería Informática y Administración y Dirección de Empresas" width="100%" />
 </p>
 
 <h1 align="center">Hola, soy Marc 👋</h1>
 
 <p align="center">
   Estudiante del doble grado en Ingeniería Informática y Administración y Dirección de Empresas en la Universitat Politècnica de València.<br />
-  Me interesa construir proyectos donde se cruzan la programación, los datos, la estrategia y las finanzas.
+  Me interesa construir proyectos donde se cruzan la programación, los datos y la gestión de empresas.
 </p>
 
 <p align="center">
@@ -18,20 +18,20 @@
 
 ## 👨‍💻 About
 
-Soy Marc, de Valencia. Estudio Ingeniería Informática y ADE en la UPV. En mis proyectos he trabajado con programación en **Python y Java**, análisis de datos y problemas aplicados a las finanzas. También me interesan la **ciberseguridad**, la **IA aplicada** y los proyectos colaborativos.
+Soy Marc, de Valencia. Estudio Ingeniería Informática y Administración y Dirección de Empresas en la UPV. En mis proyectos he trabajado con programación en **Python y Java**, análisis de datos y problemas de negocio. También me interesan la **ciberseguridad**, la **IA aplicada** y los proyectos colaborativos.
 
 - 🎓 Doble grado en Ingeniería Informática + ADE · UPV
 - 📍 Valencia, España
-- 📊 Intereses: datos, finanzas, tecnología y estrategia deportiva
+- 📊 Intereses: datos, empresa, tecnología y estrategia deportiva
 - 🤝 Me gusta documentar tanto el resultado como mi aportación en los trabajos de equipo
 
 ## 🛠️ Tech Stack
 
-<p align="center">
+<p align="left">
   <img src="https://skillicons.dev/icons?i=python,java,html,git,github&amp;theme=dark&amp;perline=5" alt="Iconos cuadrados de Python, Java, HTML, Git y GitHub" />
 </p>
 
-<p align="center"><sub>Python · Java · HTML · Git/GitHub · Excel para análisis</sub></p>
+<p align="left"><sub>Python · Java · HTML · Git/GitHub · Excel para análisis</sub></p>
 
 ## 🤖 AI & ML Expertise
 
@@ -70,30 +70,26 @@ Mi trabajo publicado está más centrado en **análisis de datos y prototipos** 
 ## 📊 GitHub Analytics
 
 <p align="center">
+  <img src="https://streak-stats.demolab.com/?user=Machisi&amp;theme=tokyonight&amp;hide_border=true" alt="Racha de contribuciones públicas de Marc" />
+</p>
+
+<p align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Machisi&amp;show_icons=true&amp;theme=tokyonight&amp;hide_border=true" alt="Estadísticas públicas de GitHub de Marc" height="165" />
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Machisi&amp;layout=compact&amp;theme=tokyonight&amp;hide_border=true" alt="Lenguajes más presentes en los repositorios públicos" height="165" />
 </p>
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com/?user=Machisi&amp;theme=tokyonight&amp;hide_border=true" alt="Racha de contribuciones públicas de Marc" />
-</p>
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Machisi/machisi/output/activity-graph.svg" alt="Gráfico de contribuciones semanales de Marc" width="100%" />
+  <img src="./assets/activity-graph.svg" alt="Gráfico de contribuciones semanales de Marc" width="100%" />
 </p>
 
 <p align="center"><sub>Las tarjetas muestran actividad pública; los forks y los repositorios privados pueden influir de forma distinta en cada contador.</sub></p>
 
 ## 🐍 Contribution Snake
 
-<p align="center">Un gusano morado recorre mis contribuciones de GitHub. Se actualiza automáticamente cada día.</p>
+<p align="center">Un gusano morado recorre mi calendario de contribuciones públicas.</p>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Machisi/machisi/output/snake-dark.svg" />
-    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Machisi/machisi/output/snake-light.svg" />
-    <img src="https://raw.githubusercontent.com/Machisi/machisi/output/snake-dark.svg" alt="Gusano morado animado sobre el calendario de contribuciones de Marc" width="100%" />
-  </picture>
+  <img src="./assets/contribution-snake.svg" alt="Gusano morado animado sobre el calendario de contribuciones de Marc" width="100%" />
 </p>
 
 ---
