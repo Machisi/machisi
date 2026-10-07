@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="280" viewBox="0 0 1200 280" role="img" aria-labelledby="title desc">
   <title id="title">Marc Chisbert Simó</title>
-  <desc id="desc">Banner morado para el perfil de GitHub de Marc Chisbert Simó</desc>
+  <desc id="desc">Purple banner for Marc Chisbert Simó's GitHub profile</desc>
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0d1117"/>
@@ -23,6 +23,6 @@
   <path d="M790 229C860 204 910 255 976 215S1110 200 1200 155" fill="none" stroke="#a78bfa" stroke-width="2" opacity="0.4"/>
   <rect x="68" y="55" width="67" height="5" rx="2.5" fill="url(#accent)"/>
   <text x="68" y="120" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700">MARC CHISBERT SIMÓ</text>
-  <text x="70" y="168" fill="#d8ceff" font-family="Arial, Helvetica, sans-serif" font-size="24">Ingeniería Informática + Administración y Dirección de Empresas</text>
-  <text x="70" y="214" fill="#a6b3ca" font-family="Arial, Helvetica, sans-serif" font-size="18">Python · Java · Datos · Valencia</text>
+  <text x="70" y="168" fill="#d8ceff" font-family="Arial, Helvetica, sans-serif" font-size="24">Computer Engineering + Business Administration and Management</text>
+  <text x="70" y="214" fill="#a6b3ca" font-family="Arial, Helvetica, sans-serif" font-size="18">Python · Java · Data · Valencia</text>
 </svg>

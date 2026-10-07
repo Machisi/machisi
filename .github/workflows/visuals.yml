@@ -1,0 +1,40 @@
+name: Update profile visuals
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '17 6 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  visuals:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate the graph and snake
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_USER: ${{ github.repository_owner }}
+        run: python scripts/generate_activity_graph.py
+
+      - name: Commit the SVG files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/activity-graph.svg assets/contribution-snake.svg
+          if git diff --cached --quiet; then
+            echo "No changes to the visuals"
+            exit 0
+          fi
+          git commit -m "Update profile visuals"
+          git push origin HEAD:main
