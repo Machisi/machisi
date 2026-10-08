@@ -37,6 +37,9 @@ jobs:
           outputs: |
             assets/contribution-snake.svg?color_snake=purple&color_dots=#161b22,#01311f,#034525,#0f6d31,#00c647
 
+      - name: Give the snake a dark background
+        run: python scripts/style_contribution_snake.py
+
       - name: Commit the SVG files
         run: |
           git config user.name "github-actions[bot]"
