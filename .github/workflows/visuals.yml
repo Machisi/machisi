@@ -24,11 +24,18 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Generate the graph and snake
+      - name: Generate the activity graph
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ${{ github.repository_owner }}
         run: python scripts/generate_activity_graph.py
+
+      - name: Generate the snake from the contribution calendar
+        uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/contribution-snake.svg?color_snake=purple&color_dots=#161b22,#01311f,#034525,#0f6d31,#00c647
 
       - name: Commit the SVG files
         run: |
