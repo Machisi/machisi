@@ -27,6 +27,19 @@ query($login: String!) {
   }
 }
 """
+YEAR_QUERY = """
+query($login: String!, $from: DateTime!, $to: DateTime!) {
+  user(login: $login) {
+    contributionsCollection(from: $from, to: $to) {
+      contributionCalendar {
+        weeks {
+          contributionDays { date contributionCount contributionLevel }
+        }
+      }
+    }
+  }
+}
+"""
 
 LEVELS = {
     "NONE": 0,
@@ -39,8 +52,18 @@ MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", 
 Day = tuple[date, int, int]
 
 
-def fetch_days(login: str, token: str) -> list[Day]:
-    body = json.dumps({"query": QUERY, "variables": {"login": login}}).encode()
+def fetch_days(login: str, token: str, year: int | None = None) -> list[Day]:
+    if year is None:
+        query = QUERY
+        variables = {"login": login}
+    else:
+        query = YEAR_QUERY
+        variables = {
+            "login": login,
+            "from": f"{year}-01-01T00:00:00Z",
+            "to": f"{year}-12-31T23:59:59Z",
+        }
+    body = json.dumps({"query": query, "variables": variables}).encode()
     request = Request(
         "https://api.github.com/graphql",
         data=body,

@@ -85,11 +85,17 @@ My published work focuses more on **data analysis and prototypes** than on machi
 
 ## 🐍 Contribution Snake
 
-<p align="center">A purple snake travels across my public contribution calendar.</p>
+<p align="center">A purple snake travels across my GitHub contribution calendar. Choose a year to see its animation.</p>
 
-<p align="center">
-  <img src="./assets/contribution-snake.svg" alt="Animated purple snake on Marc's contribution calendar" width="100%" />
-</p>
+<!-- contribution-calendar:start -->
+<table><tr><td width="90%" valign="top">
+<img src="./assets/contribution-snake.svg" alt="Animated purple snake on Marc’s GitHub contribution calendar" width="100%" />
+</td><td valign="top"><strong>Years</strong><br />
+<strong>2026</strong><br />
+<a href="https://raw.githubusercontent.com/Machisi/machisi/main/assets/contribution-snake-2025.svg">2025</a><br />
+<a href="https://raw.githubusercontent.com/Machisi/machisi/main/assets/contribution-snake-2024.svg">2024</a>
+</td></tr></table>
+<!-- contribution-calendar:end -->
 
 ---
 
