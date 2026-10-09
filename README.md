@@ -83,6 +83,8 @@ My published work focuses more on **data analysis and prototypes** than on machi
   </a>
 </p>
 
+<p align="center"><sub><a href="https://github.com/Machisi?tab=overview">Open my GitHub contribution calendar</a> for the latest activity.</sub></p>
+
 <p align="center"><sub>These cards show public activity. Forks and private repositories can affect each counter differently.</sub></p>
 
 ## 🐍 Contribution Snake
