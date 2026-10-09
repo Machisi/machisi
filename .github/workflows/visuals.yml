@@ -33,23 +33,20 @@ jobs:
       - name: Install the pinned snake generator
         run: npm ci
 
-      - name: Generate a snake for each calendar
+      - name: Generate the snake from GitHub's contribution calendar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ${{ github.repository_owner }}
         run: node scripts/generate_snakes.mjs
 
-      - name: Add calendar labels and yearly views
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_USER: ${{ github.repository_owner }}
+      - name: Generate the matching graph and label the snake
         run: python scripts/style_contribution_snake.py
 
       - name: Commit the SVG files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets/contribution-snake*.svg
+          git add assets/contribution-graph.svg assets/contribution-snake.svg
           if git diff --cached --quiet; then
             echo "No changes to the visuals"
             exit 0

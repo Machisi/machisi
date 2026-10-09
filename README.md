@@ -80,26 +80,20 @@ My published work focuses more on **data analysis and prototypes** than on machi
 
 <p align="center">
   <a href="https://github.com/Machisi?tab=overview">
-    <img src="https://readme-stats-theta-sepia.vercel.app/api/activity-graph?username=Machisi&amp;theme=dark&amp;days=365&amp;line_color=%23c084fc&amp;area_color=%23a855f7" alt="Live contribution activity for Marc Chisbert Simó" width="100%" />
+    <img src="./assets/contribution-graph.svg" alt="Marc's GitHub contribution graph, generated from GitHub's contribution calendar" width="100%" />
   </a>
 </p>
 
-<p align="center"><sub><a href="https://github.com/Machisi?tab=overview">Open my GitHub contribution calendar</a> for the latest activity.</sub></p>
+<p align="center"><sub>Generated from GitHub's contribution calendar on an hourly schedule. <a href="https://github.com/Machisi?tab=overview">Open GitHub's live contribution graph</a> for the latest activity.</sub></p>
 
 <p align="center"><sub>These cards show public activity. Forks and private repositories can affect each counter differently.</sub></p>
 
 ## 🐍 Contribution Snake
 
-<p align="center">A purple snake travels across my GitHub contribution calendar. Choose a year to see its animation.</p>
+<p align="center">A purple snake travels across the same GitHub contribution calendar.</p>
 
 <!-- contribution-calendar:start -->
-<table><tr><td width="90%" valign="top">
 <img src="./assets/contribution-snake.svg" alt="Animated purple snake on Marc’s GitHub contribution calendar" width="100%" />
-</td><td valign="top"><strong>Years</strong><br />
-<strong>2026</strong><br />
-<a href="https://raw.githubusercontent.com/Machisi/machisi/main/assets/contribution-snake-2025.svg">2025</a><br />
-<a href="https://raw.githubusercontent.com/Machisi/machisi/main/assets/contribution-snake-2024.svg">2024</a>
-</td></tr></table>
 <!-- contribution-calendar:end -->
 
 ---

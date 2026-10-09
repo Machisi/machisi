@@ -5,25 +5,19 @@ const login = process.env.GITHUB_USER;
 const token = process.env.GITHUB_TOKEN;
 if (!login || !token) throw new Error('GITHUB_USER and GITHUB_TOKEN are required');
 
-// The published generator fetches the rolling calendar. Scope its own GitHub
-// GraphQL request to an individual year when rendering a historical calendar.
+// Keep the exact GitHub response used by the snake so the plain graph and
+// animated calendar render the same dates and contribution levels.
 const nativeFetch = globalThis.fetch;
-let requestedYear = null;
-globalThis.fetch = (input, options) => {
-  if (requestedYear === null || String(input) !== 'https://api.github.com/graphql') {
-    return nativeFetch(input, options);
+globalThis.fetch = async (input, options) => {
+  const response = await nativeFetch(input, options);
+  if (String(input) === 'https://api.github.com/graphql') {
+    const payload = await response.clone().json();
+    if (!response.ok || payload.errors?.length || !payload.data?.user?.contributionsCollection?.contributionCalendar?.weeks?.length) {
+      throw new Error('GitHub did not return a usable contribution calendar');
+    }
+    await writeFile('.contribution-calendar.json', JSON.stringify(payload), 'utf8');
   }
-  const payload = JSON.parse(options.body);
-  const marker = 'contributionsCollection {';
-  if (payload.query.split(marker).length !== 2) {
-    throw new Error('The snake generator changed its GitHub calendar query');
-  }
-  const year = requestedYear;
-  payload.query = payload.query.replace(
-    marker,
-    `contributionsCollection(from: "${year}-01-01T00:00:00Z", to: "${year}-12-31T23:59:59Z") {`,
-  );
-  return nativeFetch(input, { ...options, body: JSON.stringify(payload) });
+  return response;
 };
 
 const source = { platform: 'github', username: login, githubToken: token };
@@ -42,13 +36,9 @@ const output = {
 };
 
 await mkdir('assets', { recursive: true });
-for (const year of [null, ...Array.from({ length: new Date().getUTCFullYear() - 2024 }, (_, i) => 2024 + i)]) {
-  requestedYear = year;
-  const [svg] = await generateSnakeAnimation(source, [output]);
-  if (typeof svg !== 'string' || !svg.includes('class="s s0"')) {
-    throw new Error(`Snake generation failed for ${year ?? 'current year'}`);
-  }
-  const path = year === null ? 'assets/contribution-snake.svg' : `assets/contribution-snake-${year}.svg`;
-  await writeFile(path, svg, 'utf8');
-  console.log(`Generated ${path} from ${year ?? 'the rolling year'} calendar`);
+const [svg] = await generateSnakeAnimation(source, [output]);
+if (typeof svg !== 'string' || !svg.includes('class="s s0"')) {
+  throw new Error('Snake generation failed');
 }
+await writeFile('assets/contribution-snake.svg', svg, 'utf8');
+console.log('Generated the current contribution snake');
