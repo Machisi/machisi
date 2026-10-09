@@ -1,4 +1,4 @@
-"""Render the plain graph and animated snake from one GitHub calendar."""
+"""Label the animated snake with dates from GitHub's contribution calendar."""
 
 from __future__ import annotations
 
@@ -88,18 +88,11 @@ def main() -> None:
     path = Path("assets/contribution-snake.svg")
     days = read_days()
     snake = calendar_svg(path.read_text(encoding="utf-8"), days)
-    path.write_text(snake, encoding="utf-8")
-
-    graph, segments = re.subn(r'<rect class="s s[0-9a-z]+"[^>]*/>', "", snake)
+    segments = len(re.findall(r'<rect class="s s[0-9a-z]+"[^>]*/>', snake))
     if segments != 4:
         raise ValueError(f"Expected four snake segments, found {segments}")
-    graph = graph.replace(
-        "<desc>Generated with https://github.com/Platane/snk</desc>",
-        "<title>GitHub contribution graph</title><desc>Current contribution days from GitHub's profile calendar.</desc>",
-        1,
-    )
-    Path("assets/contribution-graph.svg").write_text(graph, encoding="utf-8")
-    print(f"Updated graph and snake from the same {len(days)} GitHub contribution days")
+    path.write_text(snake, encoding="utf-8")
+    print(f"Updated snake from {len(days)} GitHub contribution days")
 
 
 if __name__ == "__main__":

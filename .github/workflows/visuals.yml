@@ -39,14 +39,14 @@ jobs:
           GITHUB_USER: ${{ github.repository_owner }}
         run: node scripts/generate_snakes.mjs
 
-      - name: Generate the matching graph and label the snake
+      - name: Label the snake with GitHub contribution days
         run: python scripts/style_contribution_snake.py
 
       - name: Commit the SVG files
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/contribution-graph.svg assets/contribution-snake.svg
+          git add assets/contribution-snake.svg
           if git diff --cached --quiet; then
             echo "No changes to the visuals"
             exit 0

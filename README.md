@@ -78,23 +78,20 @@ My published work focuses more on **data analysis and prototypes** than on machi
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Machisi&amp;layout=compact&amp;theme=tokyonight&amp;hide_border=true" alt="Most used languages in public repositories" height="165" />
 </p>
 
-<p align="center">
-  <a href="https://github.com/Machisi?tab=overview">
-    <img src="./assets/contribution-graph.svg" alt="Marc's GitHub contribution graph, generated from GitHub's contribution calendar" width="100%" />
-  </a>
-</p>
-
-<p align="center"><sub>Generated from GitHub's contribution calendar on an hourly schedule. <a href="https://github.com/Machisi?tab=overview">Open GitHub's live contribution graph</a> for the latest activity.</sub></p>
-
 <p align="center"><sub>These cards show public activity. Forks and private repositories can affect each counter differently.</sub></p>
 
 ## 🐍 Contribution Snake
 
-<p align="center">A purple snake travels across the same GitHub contribution calendar.</p>
+<p align="center">A purple snake travels across my GitHub contribution calendar, updated hourly.</p>
 
 <!-- contribution-calendar:start -->
-<img src="./assets/contribution-snake.svg" alt="Animated purple snake on Marc’s GitHub contribution calendar" width="100%" />
+<p align="center">
+  <a href="https://raw.githubusercontent.com/Machisi/machisi/main/assets/contribution-snake.svg">
+    <img src="./assets/contribution-snake.svg" alt="Animated purple snake on Marc's GitHub contribution calendar. Open the SVG to inspect contributions by day." width="100%" />
+  </a>
+</p>
 <!-- contribution-calendar:end -->
+<p align="center"><sub>Click the snake, then hover over a day to see its contribution count. For the latest activity, <a href="https://github.com/Machisi?tab=overview">open GitHub's live calendar</a>.</sub></p>
 
 ---
 
