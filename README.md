@@ -59,6 +59,7 @@ My published work focuses more on **data analysis and prototypes** than on machi
 
 | Certificate | Issuer | Date |
 | :--- | :--- | :--- |
+| [LSEG Finance Essentials Certification · certificate of completion](./assets/certificates/lseg-finance-essentials-2026.pdf) | London Stock Exchange Group (LSEG) | October 9, 2026 |
 | [Certified in Cybersecurity (CC) · certificate of completion](./assets/certificates/isc2-cc-2025-public.pdf) | ISC2 | May 16, 2025 |
 | [Getting Started with Cisco Packet Tracer](./assets/certificates/cisco-packet-tracer-getting-started-2025.pdf) | Cisco Networking Academy | November 26, 2025 |
 | [Exploring Networking with Cisco Packet Tracer](./assets/certificates/cisco-packet-tracer-networking-2025.pdf) | Cisco Networking Academy | November 26, 2025 |
