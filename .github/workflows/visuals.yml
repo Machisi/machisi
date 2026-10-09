@@ -6,7 +6,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '17 * * * *'
+    - cron: '2/5 * * * *'
 
 permissions:
   contents: write
@@ -42,11 +42,11 @@ jobs:
       - name: Label the snake with GitHub contribution days
         run: python scripts/style_contribution_snake.py
 
-      - name: Commit the SVG files
+      - name: Commit the updated calendar
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/contribution-snake.svg
+          git add assets/contribution-snake.svg README.md
           if git diff --cached --quiet; then
             echo "No changes to the visuals"
             exit 0

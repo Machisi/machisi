@@ -5,8 +5,8 @@ const login = process.env.GITHUB_USER;
 const token = process.env.GITHUB_TOKEN;
 if (!login || !token) throw new Error('GITHUB_USER and GITHUB_TOKEN are required');
 
-// Keep the exact GitHub response used by the snake so the plain graph and
-// animated calendar render the same dates and contribution levels.
+// Keep the exact GitHub response used by the snake so its dates and
+// contribution levels match GitHub's native calendar.
 const nativeFetch = globalThis.fetch;
 globalThis.fetch = async (input, options) => {
   const response = await nativeFetch(input, options);

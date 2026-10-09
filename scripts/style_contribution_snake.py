@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import re
 from datetime import date, timedelta
+from hashlib import sha256
 from pathlib import Path
 
 from github_contributions import Day, read_days
@@ -92,6 +93,18 @@ def main() -> None:
     if segments != 4:
         raise ValueError(f"Expected four snake segments, found {segments}")
     path.write_text(snake, encoding="utf-8")
+    readme_path = Path("README.md")
+    readme = readme_path.read_text(encoding="utf-8")
+    digest = sha256(snake.encode("utf-8")).hexdigest()[:12]
+    updated_readme, links = re.subn(
+        r'(?<=src="\./assets/contribution-snake\.svg)(?:\?v=[0-9a-f]{12})?(?=")',
+        f"?v={digest}",
+        readme,
+    )
+    if links != 1:
+        raise ValueError(f"Expected one snake image in README.md, found {links}")
+    if updated_readme != readme:
+        readme_path.write_text(updated_readme, encoding="utf-8")
     print(f"Updated snake from {len(days)} GitHub contribution days")
 
 

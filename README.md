@@ -82,16 +82,14 @@ My published work focuses more on **data analysis and prototypes** than on machi
 
 ## 🐍 Contribution Snake
 
-<p align="center">A purple snake travels across my GitHub contribution calendar, updated hourly.</p>
-
 <!-- contribution-calendar:start -->
 <p align="center">
-  <a href="https://raw.githubusercontent.com/Machisi/machisi/main/assets/contribution-snake.svg">
-    <img src="./assets/contribution-snake.svg" alt="Animated purple snake on Marc's GitHub contribution calendar. Open the SVG to inspect contributions by day." width="100%" />
+  <a href="https://github.com/Machisi?tab=overview">
+    <img src="./assets/contribution-snake.svg?v=ac6dc60547ed" alt="Animated purple snake on Marc's GitHub contribution calendar. Open GitHub's live calendar for daily counts." width="100%" />
   </a>
 </p>
 <!-- contribution-calendar:end -->
-<p align="center"><sub>Click the snake, then hover over a day to see its contribution count. For the latest activity, <a href="https://github.com/Machisi?tab=overview">open GitHub's live calendar</a>.</sub></p>
+<p align="center"><sub>Click the snake to open GitHub's live calendar; hover over a day there to see its contribution count.</sub></p>
 
 ---
 
