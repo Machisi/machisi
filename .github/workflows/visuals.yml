@@ -24,18 +24,20 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Generate the activity graph
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install the pinned snake generator
+        run: npm ci
+
+      - name: Generate a snake for each calendar
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ${{ github.repository_owner }}
-        run: python scripts/generate_activity_graph.py
-
-      - name: Generate the snake from the contribution calendar
-        uses: Platane/snk/svg-only@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            assets/contribution-snake.svg?color_snake=purple&color_dots=#161b22,#01311f,#034525,#0f6d31,#00c647
+        run: node scripts/generate_snakes.mjs
 
       - name: Add calendar labels and yearly views
         env:
@@ -47,7 +49,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md assets/activity-graph.svg assets/contribution-snake*.svg
+          git add README.md assets/contribution-snake*.svg
           if git diff --cached --quiet; then
             echo "No changes to the visuals"
             exit 0

@@ -78,7 +78,9 @@ My published work focuses more on **data analysis and prototypes** than on machi
 </p>
 
 <p align="center">
-  <img src="./assets/activity-graph.svg" alt="Marc's weekly contribution graph" width="100%" />
+  <a href="https://github.com/Machisi?tab=overview">
+    <img src="https://readme-stats-theta-sepia.vercel.app/api/activity-graph?username=Machisi&amp;theme=dark&amp;days=365&amp;line_color=%23c084fc&amp;area_color=%23a855f7" alt="Live contribution activity for Marc Chisbert Simó" width="100%" />
+  </a>
 </p>
 
 <p align="center"><sub>These cards show public activity. Forks and private repositories can affect each counter differently.</sub></p>

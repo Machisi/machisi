@@ -7,7 +7,7 @@ import re
 from datetime import date, timedelta
 from pathlib import Path
 
-from generate_activity_graph import Day, fetch_days
+from github_contributions import Day, fetch_days
 
 
 FIRST_YEAR = 2024  # Machisi joined GitHub in 2024.
@@ -63,9 +63,10 @@ def calendar_svg(source: str, days: list[Day], heading: str) -> str:
     svg = svg[:style_end] + '<style>rect.c{animation:none!important}</style>' + svg[style_end:]
 
     total = sum(count for _, count, _ in days)
+    contribution_word = "contribution" if total == 1 else "contributions"
     labels = [
         f'<text x="-48" y="-48" font-size="15" fill="#c9d1d9">'
-        f'{total} contributions {heading}</text>'
+        f'{total} {contribution_word} {heading}</text>'
     ]
     month = date(first.year, first.month, 1)
     while month <= last:
@@ -133,7 +134,8 @@ def main() -> None:
     for year in range(FIRST_YEAR, current_year):
         annual = [day for day in fetch_days(login, token, year) if day[0].year == year]
         output = Path(f"assets/contribution-snake-{year}.svg")
-        output.write_text(calendar_svg(source, annual, f"in {year}"), encoding="utf-8")
+        annual_source = output.read_text(encoding="utf-8")
+        output.write_text(calendar_svg(annual_source, annual, f"in {year}"), encoding="utf-8")
     update_readme(current_year, repository)
     print(f"Updated contribution calendars for {FIRST_YEAR}-{current_year}")
 
