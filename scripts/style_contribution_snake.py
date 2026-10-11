@@ -46,6 +46,9 @@ def calendar_svg(source: str, days: list[Day]) -> str:
     svg, replaced = CELL.subn(replace_cell, source)
     if replaced != len(days):
         raise ValueError(f"Snake has {replaced} cells but GitHub returned {len(days)} days")
+    # Keep GitHub's contribution colors fixed while the purple snake moves.
+    # Platane/snk's update layers otherwise leave a green trail below the grid.
+    svg = re.sub(r'<rect class="u u[0-9a-z]+"[^>]*/>', "", svg)
 
     opening = re.match(r'<svg\b[^>]*>', svg)
     if opening is None:
@@ -55,6 +58,11 @@ def calendar_svg(source: str, days: list[Day]) -> str:
     root = re.sub(r'width="[^"]+"', 'width="920"', root, count=1)
     root = re.sub(r'height="[^"]+"', 'height="240"', root, count=1)
     svg = root + '<rect x="-56" y="-68" width="920" height="240" fill="#0d1117"/>' + svg[opening.end() :]
+    style_end = svg.find("</style>")
+    if style_end < 0:
+        raise ValueError("Platane/snk returned no animation styles")
+    style_end += len("</style>")
+    svg = svg[:style_end] + '<style>.c{animation:none!important}</style>' + svg[style_end:]
 
     total = sum(count for _, count, _ in days)
     noun = "contribution" if total == 1 else "contributions"
