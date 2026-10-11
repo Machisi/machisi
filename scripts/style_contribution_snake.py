@@ -12,7 +12,7 @@ from github_contributions import Day, read_days
 COLORS = ("#161b22", "#0e4429", "#006d32", "#26a641", "#39d353")
 MONTHS = ("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")
 CELL = re.compile(
-    r'<rect class="c(?: c[0-9a-z]+)?" x="(?P<x>\d+)" y="(?P<y>\d+)" rx="2" ry="2"/>'
+    r'<rect class="c(?P<animation> c[0-9a-z]+)?" x="(?P<x>\d+)" y="(?P<y>\d+)" rx="2" ry="2"/>'
 )
 
 
@@ -22,6 +22,10 @@ def calendar_svg(source: str, days: list[Day]) -> str:
     first_sunday = first - timedelta(days=(first.weekday() + 1) % 7)
     by_date = {day: (count, level) for day, count, level in days}
     columns = max(int(match.group("x")) for match in CELL.finditer(source)) // 16 + 1
+    animation_levels = {
+        animation: int(level)
+        for animation, level in re.findall(r'\.c\.(c[0-9a-z]+)\{fill:var\(--c([0-4])\)', source)
+    }
 
     def replace_cell(match: re.Match[str]) -> str:
         x, y = int(match.group("x")), int(match.group("y"))
@@ -29,17 +33,19 @@ def calendar_svg(source: str, days: list[Day]) -> str:
         if current not in by_date:
             raise ValueError(f"The snake has a calendar cell outside the GitHub response: {current}")
         count, level = by_date[current]
+        animation = match.group("animation")
+        source_level = animation_levels[animation.strip()] if animation else 0
+        if source_level != level:
+            raise ValueError(f"Platane/snk and GitHub disagree on {current}: {source_level} != {level}")
         noun = "contribution" if count == 1 else "contributions"
         return (
-            f'<rect class="c" x="{x}" y="{y}" rx="2" ry="2" '
-            f'style="fill:{COLORS[level]}">'
+            f'{match.group()[:-2]}>'
             f'<title>{current.isoformat()}: {count} {noun}</title></rect>'
         )
 
     svg, replaced = CELL.subn(replace_cell, source)
     if replaced != len(days):
         raise ValueError(f"Snake has {replaced} cells but GitHub returned {len(days)} days")
-    svg = re.sub(r'<rect class="u u[0-9a-z]+"[^>]*/>', "", svg)
 
     opening = re.match(r'<svg\b[^>]*>', svg)
     if opening is None:
@@ -49,12 +55,6 @@ def calendar_svg(source: str, days: list[Day]) -> str:
     root = re.sub(r'width="[^"]+"', 'width="920"', root, count=1)
     root = re.sub(r'height="[^"]+"', 'height="240"', root, count=1)
     svg = root + '<rect x="-56" y="-68" width="920" height="240" fill="#0d1117"/>' + svg[opening.end() :]
-
-    style_end = svg.find("</style>")
-    if style_end < 0:
-        raise ValueError("Snake SVG has no animation styles")
-    style_end += len("</style>")
-    svg = svg[:style_end] + '<style>rect.c{animation:none!important}</style>' + svg[style_end:]
 
     total = sum(count for _, count, _ in days)
     noun = "contribution" if total == 1 else "contributions"

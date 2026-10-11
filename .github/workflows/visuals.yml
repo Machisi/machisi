@@ -11,6 +11,10 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: profile-visuals
+  cancel-in-progress: false
+
 jobs:
   visuals:
     runs-on: ubuntu-latest
@@ -24,20 +28,18 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - name: Generate the animated snake with Platane/snk
+        uses: Platane/snk/svg-only@v3
         with:
-          node-version: '22'
-          cache: npm
+          github_user_name: ${{ github.repository_owner }}
+          outputs: |
+            assets/contribution-snake.svg?palette=github-dark&color_snake=purple&color_dots=#161b22,#0e4429,#006d32,#26a641,#39d353
 
-      - name: Install the pinned snake generator
-        run: npm ci
-
-      - name: Generate the snake from GitHub's contribution calendar
+      - name: Read the same contribution calendar from GitHub
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GITHUB_USER: ${{ github.repository_owner }}
-        run: node scripts/generate_snakes.mjs
+        run: python scripts/fetch_github_contributions.py
 
       - name: Label the snake with GitHub contribution days
         run: python scripts/style_contribution_snake.py
