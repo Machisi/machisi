@@ -69,27 +69,9 @@ My published work focuses more on **data analysis and prototypes** than on machi
 
 ## 📊 GitHub Analytics
 
-<p align="center">
-  <img src="https://streak-stats.demolab.com/?user=Machisi&amp;theme=tokyonight&amp;hide_border=true" alt="Marc's public contribution streak" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Machisi&amp;show_icons=true&amp;theme=tokyonight&amp;hide_border=true" alt="Marc's public GitHub statistics" height="165" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Machisi&amp;layout=compact&amp;theme=tokyonight&amp;hide_border=true" alt="Most used languages in public repositories" height="165" />
-</p>
-
-<p align="center"><sub>These cards show public activity. Forks and private repositories can affect each counter differently.</sub></p>
-
-## 🐍 Contribution Snake
-
-<!-- contribution-calendar:start -->
-<p align="center">
-  <a href="https://github.com/Machisi?tab=overview">
-    <img src="./assets/contribution-snake.svg?v=896cf3e038aa" alt="Animated purple snake on Marc's GitHub contribution calendar. Open GitHub's live calendar for daily counts." width="100%" />
-  </a>
-</p>
-<!-- contribution-calendar:end -->
-<p align="center"><sub>Click the snake to open GitHub's live calendar; hover over a day there to see its contribution count.</sub></p>
+<!-- github-activity:start -->
+The live statistics and calendar are being generated from GitHub's contribution data. [Open GitHub's original graph](https://github.com/Machisi?tab=overview).
+<!-- github-activity:end -->
 
 ---
 
