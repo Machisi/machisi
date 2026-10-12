@@ -35,11 +35,18 @@ class ActivityTests(unittest.TestCase):
     def test_readme_section_has_no_statistic_images(self):
         activity = {"total": 4, "weeks": self.weeks}
         repos = {"repositoryCount": 2, "stars": 3, "languages": [{"name": "Python"}]}
-        section = readme_section("Machisi", activity, repos)
+        section = readme_section("Machisi", activity, repos, pages_enabled=True)
         self.assertIn("Contribution calendar", section)
         self.assertIn("**4**", section)
         self.assertNotIn("<img", section)
         self.assertIn("machisi.github.io/machisi/", section)
+
+    def test_disabled_pages_does_not_link_to_unpublished_site(self):
+        activity = {"total": 4, "weeks": self.weeks}
+        repos = {"repositoryCount": 2, "stars": 3, "languages": []}
+        section = readme_section("Machisi", activity, repos, pages_enabled=False)
+        self.assertNotIn("machisi.github.io", section)
+        self.assertIn("View the interactive page's source code", section)
 
 
 if __name__ == "__main__":

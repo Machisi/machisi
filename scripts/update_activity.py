@@ -182,9 +182,14 @@ def calendar_table(login: str, weeks: list[list[dict]]) -> str:
     return "<table>\n<thead>" + header + "</thead>\n<tbody>\n" + "\n".join(rows) + "\n</tbody>\n</table>"
 
 
-def readme_section(login: str, activity: dict, repos: dict) -> str:
+def readme_section(login: str, activity: dict, repos: dict, pages_enabled: bool) -> str:
     current, longest = streaks(activity["weeks"])
     languages = ", ".join(item["name"] for item in repos["languages"][:3]) or "—"
+    graph_link = f"[GitHub's original contribution graph](https://github.com/{login}?tab=overview)"
+    if pages_enabled:
+        links = f"[Open the interactive contribution snake and detailed analytics](https://{login.lower()}.github.io/{login.lower()}/) · {graph_link}"
+    else:
+        links = f"{graph_link} · [View the interactive page's source code](https://github.com/{login}/{login}/tree/main/docs)"
     return "\n".join(
         [
             START,
@@ -200,7 +205,7 @@ def readme_section(login: str, activity: dict, repos: dict) -> str:
             "",
             calendar_table(login, activity["weeks"]),
             "",
-            f"[Open the interactive contribution snake and detailed analytics](https://{login.lower()}.github.io/{login.lower()}/) · [GitHub's original contribution graph](https://github.com/{login}?tab=overview)",
+            links,
             "",
             "<sub>Updated by GitHub Actions each hour. Contributions follow GitHub's calendar; project languages and stars cover public, non-fork, non-archived repositories.</sub>",
             END,
@@ -228,7 +233,7 @@ def main() -> None:
     output = {"user": login, **activity, **repos}
     destination = ROOT / "docs" / "activity.json"
     destination.write_text(json.dumps(output, separators=(",", ":")), encoding="utf-8")
-    update_readme(readme_section(login, activity, repos))
+    update_readme(readme_section(login, activity, repos, os.getenv("PAGES_ENABLED") == "true"))
     print(f"Updated {len(activity['weeks'])} weeks of GitHub activity")
 
 

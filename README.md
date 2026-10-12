@@ -93,7 +93,7 @@ The squares below are generated from GitHub's daily contribution counts. Hover o
 </tbody>
 </table>
 
-[Open the interactive contribution snake and detailed analytics](https://machisi.github.io/machisi/) · [GitHub's original contribution graph](https://github.com/Machisi?tab=overview)
+[GitHub's original contribution graph](https://github.com/Machisi?tab=overview) · [View the interactive page's source code](https://github.com/Machisi/Machisi/tree/main/docs)
 
 <sub>Updated by GitHub Actions each hour. Contributions follow GitHub's calendar; project languages and stars cover public, non-fork, non-archived repositories.</sub>
 <!-- github-activity:end -->
