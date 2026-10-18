@@ -85,7 +85,7 @@ My published work focuses more on **data analysis and prototypes** than on machi
 <!-- contribution-calendar:start -->
 <p align="center">
   <a href="https://github.com/Machisi?tab=overview">
-    <img src="./assets/contribution-snake.svg?v=1aa16085131a" alt="Animated purple snake on Marc's GitHub contribution calendar. Open GitHub's live calendar for daily counts." width="100%" />
+    <img src="./assets/contribution-snake.svg?v=08c9577506ea" alt="Animated purple snake on Marc's GitHub contribution calendar. Open GitHub's live calendar for daily counts." width="100%" />
   </a>
 </p>
 <!-- contribution-calendar:end -->
